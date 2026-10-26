@@ -4,19 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-**Chores ^ Redwars** — an app for parents to manage activities, points and rewards for their daughters. Printed output is in Dutch.
+**Chores & Redwars** — an app for parents to manage activities, points and rewards for their children. Multilanguage, starting with italian and dutch languages.
 Phase 1: parents only. See `SPEC.md` for the product spec.
 
 ## Rules
 
-- **Language:** the parent writes in Italian; output for the children is in Dutch. Every user-visible string goes through the i18n files (IT and NL) — never hardcode strings.
+- **Language:** Every user-visible string goes through the i18n files (IT, NL, etc.) — never hardcode strings.
 - **Python:** type hints everywhere; Pydantic models for API input/output.
 - **Before saying "done":** lint and tests must be green (both projects you touched).
 - **No paid services** and no dependencies that require an API key.
 
 ## Don't
 
-- Don't modify hand-corrected NL translations (once they exist).
+- Don't modify hand-corrected any translations (once they exist).
 
 ## Overview
 
