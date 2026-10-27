@@ -40,12 +40,20 @@ TIMEOUT_SECONDS = 600.0
 # Formato di prompt ufficiale di TranslateGemma.
 # Le stringhe adiacenti tra parentesi vengono unite dal compilatore (come
 # 'a' . 'b' in PHP, ma senza operatore): utile per rispettare le 88 colonne.
-# `{text}` è un segnaposto che riempiremo con `.format(text=...)`.
+# `{context}` e `{text}` sono segnaposto che riempiremo con `.format(...)`.
+#
+# Il contesto non fa parte del formato ufficiale: lo aggiungiamo dopo la
+# prima frase per aiutare il modello a scegliere il senso giusto
+# (es. "Strumento" = strumento musicale, "Compiti" = compiti per casa).
+CONTEXT = (
+    "The texts come from a calendar of activities and chores for girls aged 8 to 10."
+)
+
 PROMPT_TEMPLATE = (
     "You are a professional Italian (it) to Dutch (nl) translator. "
     "Your goal is to accurately convey the meaning and nuances of the "
     "original Italian text while adhering to Dutch grammar, vocabulary, "
-    "and cultural sensitivities.\n"
+    "and cultural sensitivities. {context}\n"
     "Produce only the Dutch translation, without any additional "
     "explanations or commentary. Please translate the following Italian "
     "text into Dutch:\n"
@@ -89,7 +97,8 @@ def read_sentences(path: Path) -> list[str]:
 
 
 def build_prompt(text: str) -> str:
-    return PROMPT_TEMPLATE.format(text=text)
+    # Argomenti nominati (`chiave=valore`), come i named arguments di PHP 8.
+    return PROMPT_TEMPLATE.format(context=CONTEXT, text=text)
 
 
 def generate(client: httpx.Client, model: str, prompt: str) -> dict:
@@ -154,6 +163,8 @@ def write_results(path: Path, results: list[TranslationResult]) -> None:
         "# Risultati eval traduzioni IT→NL",
         "",
         f"Generato il {datetime.now():%Y-%m-%d %H:%M}",
+        "",
+        f"Contesto nel prompt: {CONTEXT}",
         "",
         "| Modello | Frase (IT) | Traduzione (NL) | Secondi | Token/s | Rating |",
         "|---|---|---|---:|---:|---|",
