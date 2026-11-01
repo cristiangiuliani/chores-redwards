@@ -9,6 +9,7 @@ Phase 1: parents only. See `SPEC.md` for the product spec.
 
 ## Rules
 
+- **Spec first:** read `SPEC.md` before any feature work. Acceptance criteria (e.g. `ATT-3`) are the source of truth: name the corresponding pytest tests after their code. If a request conflicts with the spec, or touches an open question, ask before implementing.
 - **Language:** Every user-visible string goes through the i18n files (IT, NL, etc.) — never hardcode strings.
 - **Python:** type hints everywhere; Pydantic models for API input/output.
 - **Before saying "done":** lint and tests must be green (both projects you touched).
@@ -60,3 +61,9 @@ npm run build                            # tsc -b && vite build (type-check happ
 - Frontend tests run in jsdom with `src/setupTests.ts` (jest-dom matchers + RTL cleanup). Tests mock network calls with `vi.stubGlobal('fetch', ...)`; there is no MSW.
 - Prettier style: no semicolons, single quotes, trailing commas (`frontend/.prettierrc`). Ruff selects `E, F, I, UP, B` with line length 88.
 - No i18n setup exists yet (see Rules) — it must be added before introducing user-visible text beyond the health page.
+
+
+## Environment
+
+- Mac Intel, macOS 12 Monterey, 16 GB RAM, no GPU
+- Before advice a tool or a software, check if it runs on macOs 12 Intel of find the older/specific version
