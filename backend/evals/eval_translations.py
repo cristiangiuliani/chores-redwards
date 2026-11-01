@@ -124,6 +124,15 @@ def unload(client: httpx.Client, model: str) -> None:
     client.post("/api/generate", json={"model": model, "keep_alive": 0})
 
 
+def match_trailing_period(source: str, translation: str) -> str:
+    """Toglie il punto finale aggiunto dal modello se la frase IT non lo ha."""
+    # endswith() è str_ends_with() di PHP 8. rstrip(".") toglie tutti i punti
+    # finali (come rtrim($s, '.')); non tocchiamo i "..." voluti nell'originale.
+    if source.endswith(".") or not translation.endswith("."):
+        return translation
+    return translation.rstrip(".").rstrip()
+
+
 def translate(client: httpx.Client, model: str, sentence: str) -> TranslationResult:
     """Traduce una frase misurando il tempo lato script e i token/s di Ollama."""
     # perf_counter() è un orologio monotono ad alta risoluzione, adatto a
@@ -143,7 +152,7 @@ def translate(client: httpx.Client, model: str, sentence: str) -> TranslationRes
     return TranslationResult(
         model=model,
         sentence=sentence,
-        translation=data.get("response", "").strip(),
+        translation=match_trailing_period(sentence, data.get("response", "").strip()),
         seconds=seconds,
         tokens_per_second=tokens_per_second,
     )
