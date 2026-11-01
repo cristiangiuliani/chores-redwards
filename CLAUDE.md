@@ -6,10 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Chores & Redwars** — an app for parents to manage activities, points and rewards for their children. Multilanguage, starting with italian and dutch languages.
 Phase 1: parents only. See `SPEC.md` for the product spec.
+Piano e fasi: vedi PLAN.md
 
 ## Rules
 
 - **Spec first:** read `SPEC.md` before any feature work. Acceptance criteria (e.g. `ATT-3`) are the source of truth: name the corresponding pytest tests after their code. If a request conflicts with the spec, or touches an open question, ask before implementing.
+- Nomi di file e cartelle sempre in inglese.
 - **Language:** Every user-visible string goes through the i18n files (IT, NL, etc.) — never hardcode strings.
 - **Python:** type hints everywhere; Pydantic models for API input/output.
 - **Before saying "done":** lint and tests must be green (both projects you touched).
