@@ -15,9 +15,24 @@
       "Bash(npm run format)",
       "Bash(npm run format:check)",
       "Bash(npm run build)",
-      "Bash(npx vitest run *)"
+      "Bash(npx vitest run *)",
+
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git log)",
+      "Bash(git log *)",
+      "Bash(git show)",
+      "Bash(git show *)",
+      "Bash(git branch)",
+      "Bash(git blame *)"
     ],
     "ask": [
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+
       "Bash(uv add *)",
       "Bash(uv remove *)",
       "Bash(npm install *)",
