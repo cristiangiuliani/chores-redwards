@@ -16,6 +16,7 @@ Piano e fasi: vedi PLAN.md
 - **Python:** type hints everywhere; Pydantic models for API input/output.
 - **Before saying "done":** lint and tests must be green (both projects you touched).
 - **No paid services** and no dependencies that require an API key.
+- **Git:** commit on main and push `origin main`, unless they ask for a branch or PR.
 
 ## Don't
 

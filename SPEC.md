@@ -155,6 +155,12 @@ corrispondente.
   a stampare, **allora** la stampa viene bloccata e l'app elenca i testi mancanti, con
   le azioni "riprova" e "traduci a mano" per sbloccarla.
 
+### 9. AI nell'app (settimana 10) — criteri da scrivere
+
+- Creazione di attività da linguaggio naturale (output strutturato).
+- Riepilogo in olandese.
+- Astrazione del provider del modello.
+
 ## Bilinguismo e traduzione
 
 ### Cosa viene tradotto
