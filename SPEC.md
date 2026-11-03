@@ -159,7 +159,8 @@ corrispondente.
 
 - Creazione di attività da linguaggio naturale (output strutturato).
 - Riepilogo in olandese.
-- Astrazione del provider del modello.
+- Astrazione del provider del modello. In fase 1 collega solo modelli locali (Ollama);
+  i provider remoti restano nel Backlog (vedi "Fuori ambito").
 
 ## Bilinguismo e traduzione
 
