@@ -155,11 +155,11 @@ corrispondente.
   a stampare, **allora** la stampa viene bloccata e l'app elenca i testi mancanti, con
   le azioni "riprova" e "traduci a mano" per sbloccarla.
 
-### 9. AI nell'app (settimana 10) — criteri da scrivere
+### 9. AI nell'app (settimana di studio 10) — criteri da scrivere
 
 - Creazione di attività da linguaggio naturale (output strutturato).
-- Riepilogo generato: un testo in olandese per le figlie, scritto dal modello. È diverso
-  dal riepilogo della settimana di `VIS-3`.
+- Riepilogo generato: testo in olandese scritto dal modello locale per le figlie, a
+  partire dai dati della settimana. È diverso dal riepilogo della settimana di `VIS-3`.
 - Astrazione del provider del modello. In fase 1 collega solo modelli locali (Ollama);
   i provider remoti restano nel Backlog (vedi "Fuori ambito").
 
@@ -225,7 +225,7 @@ corrispondente.
 
 - **Backlog:** attività una tantum; obiettivo di squadra con reward condivisi;
   tracciamento della consegna dei reward; modifica dei completamenti di settimane chiuse
-  oltre a `SET-5`; servizi remoti di qualsiasi tipo (traduzione, hosting, notifiche). Il
+  oltre a `SET-5`; servizi remoti di qualsiasi tipo (traduzione, hosting dei modelli, notifiche). Il
   modello di traduzione richiede ~8 GB di RAM e gira solo in locale.
 - **Fase 2:** PIN, accesso delle figlie all'app, deploy.
 - Più famiglie e login dei genitori.
@@ -245,3 +245,5 @@ corrispondente.
    da toglierla dalla lista e dalla stampa? Oggi basta non segnarla (vale 0).
 2. **Limite al bonus:** c'è un massimo ai punti assegnabili a un singolo completamento?
 3. **Timeout della traduzione:** 60 s va bene?
+4. **Riepilogo generato:** come arriva alle figlie in fase 1, uno per figlia o uno unico,
+   quando si genera, se il genitore può correggerlo. Da decidere in settimana di studio 10.

@@ -1,5 +1,8 @@
 # Piano di sviluppo — calendario delle figlie
 
+In questo file «settimana N» è una settimana di studio, non la Settimana dell'app (vedi
+SPEC.md, Termini).
+
 Contesto per Claude Code: il progetto è anche un percorso di studio di 12 settimane
 (1 ora al giorno, lun–gio pratica, venerdì retrospettiva; inizio 26 ottobre 2026).
 Questo file stabilisce le **fasi del prodotto** e in quali settimane si lavora a cosa.
@@ -9,7 +12,7 @@ Requisiti di dettaglio: vedi SPEC.md.
 
 | Fase | Settimane | Contenuto | Dove sono i requisiti |
 |---|---|---|---|
-| **Fase 1** — solo genitori | 2–10 | Profili, settimane numerate, attività ricorrenti, completamenti e punti, cicli e soglie, reward individuali, lista settimanale, stampa in olandese, traduzione locale, attività da linguaggio naturale, riepilogo in olandese, astrazione del provider del modello | SPEC.md |
+| **Fase 1** — solo genitori | 2–10 | Profili, settimane numerate, attività ricorrenti, completamenti e punti, cicli e soglie, reward individuali, lista settimanale, stampa in olandese, traduzione locale, attività da linguaggio naturale, riepilogo generato, astrazione del provider del modello | SPEC.md |
 | **Fase 2** — accesso delle figlie | 11–12 | Accesso con PIN, vista per le figlie, segnare le attività fatte, deploy gratuito | SPEC-phase2.md (da scrivere in settimana 11) |
 | **Backlog** — senza data | — | Funzionalità rimandate, da pianificare dopo la settimana 12 | Sezione "Backlog" di SPEC.md |
 
@@ -32,16 +35,20 @@ Regole:
 |---|---|---|
 | 1 | Fondamenta: repo, Ollama, CLAUDE.md, contesto, permessi | Scheletro del repo, test dei modelli di traduzione, SPEC.md fase 1 |
 | 2 | Workflow disciplinato + Python: plan mode, esplora-pianifica-implementa-verifica, TDD | Modello dati, CRUD FastAPI con pytest |
-| 3 | Prima versione, review critica del codice generato | Lista settimanale, punti e reward, stampa in olandese, interfaccia IT/NL |
-| 4 | Personalizzazione: slash command, skill, hooks | Skill per testi bilingui, hook per formatter, traduzioni mancanti, test |
+| 3 | Prima versione, review critica del codice generato | Lista settimanale, punti e reward, stampa in olandese, interfaccia IT/NL, prima traduzione semplice e correzione manuale |
+| 4 | Personalizzazione: slash command, skill, hooks | Skill per testi bilingui, hook per formatter, chiavi i18n mancanti, test |
 | 5 | MCP: Playwright, SQLite, GitHub | Test dell'interfaccia e della stampa con Playwright |
 | 6 | Costruire un MCP server Python | MCP server sopra il calendario |
 | 7 | Subagent e parallelismo, git worktree | — |
 | 8 | Git e automazione: branch/PR, GitHub Actions, Claude Code headless | CI con lint e test |
 | 9 | AI nell'app: traduzione | Client Ollama + TranslateGemma, traduzione in background, cache, glossario, correzioni manuali, set di 30 frasi |
-| 10 | AI nell'app: avanzato | Linguaggio naturale → attività (output strutturato), riepilogo in olandese, astrazione del provider |
+| 10 | AI nell'app: avanzato | Criteri di SPEC.md §9 (all'inizio della settimana), linguaggio naturale → attività (output strutturato), riepilogo generato, astrazione del provider |
 | 11 | Fase 2 | SPEC-phase2.md, accesso con PIN, vista figlie, test end-to-end |
 | 12 | Deploy e consolidamento | Deploy gratuito, riordino CLAUDE.md/skills/hooks, PLAYBOOK.md |
+
+Settimana 3: la prima traduzione semplice è una chiamata diretta e sincrona a
+TranslateGemma al salvataggio (circa 8 s di attesa), più la correzione manuale.
+Traduzione in background, cache e glossario arrivano in settimana 9.
 
 ## Decisioni ancora aperte sulle fasi
 
@@ -53,3 +60,5 @@ Regole:
 2. **Vincoli tecnici:** Mac Intel con macOS 12, 16 GB di RAM, nessuna GPU; Ollama fermo
    alla v0.12.3; solo strumenti open e gratuiti; nessuna API a pagamento, quindi niente
    Claude in CI.
+3. **Modello generico per la settimana 10.** Candidato: qwen3:4b (provato in settimana 1
+   per il JSON). Da verificare che la RAM basti tenendolo insieme a TranslateGemma 12B.
