@@ -9,7 +9,7 @@ Requisiti di dettaglio: vedi SPEC.md.
 
 | Fase | Settimane | Contenuto | Dove sono i requisiti |
 |---|---|---|---|
-| **Fase 1** — solo genitori | 2–10 | Profili, settimane numerate, attività ricorrenti, completamenti e punti, cicli e soglie, reward individuali, lista settimanale, stampa in olandese, traduzione locale | SPEC.md |
+| **Fase 1** — solo genitori | 2–10 | Profili, settimane numerate, attività ricorrenti, completamenti e punti, cicli e soglie, reward individuali, lista settimanale, stampa in olandese, traduzione locale, attività da linguaggio naturale, riepilogo in olandese, astrazione del provider del modello | SPEC.md |
 | **Fase 2** — accesso delle figlie | 11–12 | Accesso con PIN, vista per le figlie, segnare le attività fatte, deploy gratuito | SPEC-phase2.md (da scrivere in settimana 11) |
 | **Backlog** — senza data | — | Funzionalità rimandate, da pianificare dopo la settimana 12 | Sezione "Backlog" di SPEC.md |
 
