@@ -158,7 +158,8 @@ corrispondente.
 ### 9. AI nell'app (settimana 10) — criteri da scrivere
 
 - Creazione di attività da linguaggio naturale (output strutturato).
-- Riepilogo in olandese.
+- Riepilogo generato: un testo in olandese per le figlie, scritto dal modello. È diverso
+  dal riepilogo della settimana di `VIS-3`.
 - Astrazione del provider del modello. In fase 1 collega solo modelli locali (Ollama);
   i provider remoti restano nel Backlog (vedi "Fuori ambito").
 
